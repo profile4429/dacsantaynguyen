@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\DetailController;
+use App\Http\Controllers\frontend\ProductController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +19,9 @@ use App\Http\Controllers\frontend\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'ViewHome'])->name('ViewHome');
+
+Route::get('/detail', [DetailController::class, 'ViewDetail'])->name('ViewDetail');
+
+Route::get('/product', [ProductController::class, 'ViewListProduct'])->name('ViewListProduct');
+
+

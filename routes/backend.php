@@ -50,6 +50,8 @@ Route::post('/admin/deletecategory', [CategoryController::class, 'DeleteCategory
 
 
 Route::get('/admin/order', [OrderController::class, 'ViewOrder'])->name('ViewOrder');
+Route::get('/admin/changestatus', [OrderController::class, 'ChangeStatus'])->name('ChangeStatus');
+
 
 
 

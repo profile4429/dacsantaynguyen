@@ -1,58 +1,94 @@
-<!-- Sidebar -->
-<nav id="sidebar">
-    <div class="sidebar-header">
+<nav class="navbar navbar-light navbar-vertical navbar-expand-xl">
 
-        {{-- <a class="" href="#">
-            <img src="https://laraweb.top/storage/uploads/setting/1679822950-uyGab.png" alt="">
-        </a> --}}
-
+    <div class="d-flex align-items-center">
+        <div class="toggle-icon-wrapper">
+            <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip"
+                data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span
+                        class="toggle-line"></span></span></button>
+        </div><a class="navbar-brand" href="index.html">
+            <div class="d-flex align-items-center py-3"><img class="me-2"
+                    src="assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span
+                    class="font-sans-serif">falcon</span>
+            </div>
+        </a>
     </div>
-    <ul class="list-unstyled components">
-        <li class="">
-            <a href="{{ route('ViewHomeAdmin') }}" class="dashboard"><i class="fa-solid fa-bars fa-beat-fade fa-lg"
-                    style="color: #ffffff;"></i><span>Home</span></a>
-        </li>
-        <li class="">
-            <a href="{{ route('ViewUser') }}"><i class="fa-solid fa-user fa-beat-fade fa-lg"
-                    style="color: #f5f5f5;"></i><span>Người dùng</span></a>
-        </li>
-        <li class="">
-            <a href="{{ route('ViewCategory') }}"><i class="fa-solid fa-layer-group fa-lg"
-                    style="color: #ffffff;"></i><span> Danh mục</span></a>
-        </li>
 
-        <li class="">
-            <a href="{{ route('ViewProduct') }}"><i class="fa-solid fa-shop fa-lg" style="color: #ffffff;"></i><span>
-                    Sản phẩm</span></a>
-        </li>
+    <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
+        <div class="navbar-vertical-content scrollbar">
+            <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
 
-        <li class="">
-            <a href="{{ route('ViewOrder') }}"><i class="fa-solid fa-truck fa-lg" style="color: #ffffff;"></i><span>Đơn
-                    hàng</span></a>
-        </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-indicator" href="#dashboard" role="button" data-bs-toggle="collapse"
+                        aria-expanded="false" aria-controls="dashboard">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-chart-pie"></span></span><span
+                                class="nav-link-text ps-1">Dashboard</span>
+                        </div>
+                    </a>
+                    <ul class="nav collapse" id="dashboard">
+                        <li class="nav-item"><a class="nav-link" href="index.html">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Default</span>
+                                </div>
+                            </a>
+                            <!-- more inner pages-->
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="dashboard/analytics.html">
+                                <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Analytics</span>
+                                </div>
+                            </a>
+                            <!-- more inner pages-->
+                        </li>
 
-        <li class="">
-            <a href="#"><i class="fa-solid fa-image fa-lg" style="color: #ffffff;"></i><span> Hình ảnh</span></a>
-        </li>
-        <li class="">
-            <a href="#"><i class="fa-solid fa-address-book fa-lg" style="color: #ffffff;"></i><span> Liên
-                    hệ</span></a>
-        </li>
-        <li class="">
-            <a href="#"><i class="fa-solid fa-gear fa-lg" style="color: #ffffff;"></i><span> Chính sách</span></a>
-        </li>
-        <li class="">
-            <a href="#"><i class="fa-solid fa-newspaper fa-lg" style="color: #ffffff;"></i><span> Tin
-                    tức</span></a>
-        </li>
-        <li class="">
-            <a href="#"><i class="fa-solid fa-comments fa-lg" style="color: #ffffff;"></i><span> Phản
-                    hồi</span></a>
-        </li>
-        <li class="">
-            <a href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket fa-lg"
-                    style="color: #ffffff;"></i><span>Đăng xuất</span></a>
-        </li>
+                    </ul>
+                </li>
 
-    </ul>
+                <li class="nav-item">
+                    <!-- label-->
+                    <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                        <div class="col-auto navbar-vertical-label">App
+                        </div>
+                        <div class="col ps-0">
+                            <hr class="mb-0 navbar-vertical-divider" />
+                        </div>
+                    </div>
+                    <a class="nav-link" href="{{ route('ViewHomeAdmin') }}" role="button">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-home"></span></span><span
+                                class="nav-link-text ps-1">Home</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('ViewUser') }}" role="button">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-user"></span></span><span class="nav-link-text ps-1">Người
+                                dùng</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('ViewCategory') }}" role="button">
+                        <div class="d-flex align-items-center">
+                            <span class="nav-link-icon">
+                                <span class="fas fa-folder"></span>
+                            </span>
+                            <span class="nav-link-text ps-1">
+                                Danh mục
+                            </span>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('ViewProduct') }}" role="button">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fab fa-itch-io"></span></span><span class="nav-link-text ps-1">Sản
+                                phẩm</span>
+                        </div>
+                    </a>
+                    <a class="nav-link" href="{{ route('ViewOrder') }}" role="button">
+                        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+                                    class="fas fa-shopping-cart"></span></span><span class="nav-link-text ps-1">Đơn
+                                hàng</span>
+                        </div>
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
 </nav>

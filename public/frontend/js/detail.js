@@ -1,4 +1,4 @@
-$(".category-slider").slick({
+$('.category-slider').slick({
     infinite: true, //Lặp lại
     accessibility: true,
     slidesToShow: 1, //Số item hiển thị
@@ -12,28 +12,27 @@ $(".category-slider").slick({
     draggable: true, //Kích hoạt tính năng kéo chuột
     mobileFirst: true,
     pauseOnHover: true,
-    responsive: [
-        {
+    responsive: [{
             breakpoint: 1024,
             settings: {
-                slidesToShow: 6,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 infinite: true,
-            },
+            }
         },
         {
             breakpoint: 600,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1,
-            },
+                slidesToScroll: 1
+            }
         },
         {
             breakpoint: 480,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 1,
-            },
-        },
-    ],
+                slidesToScroll: 1
+            }
+        }
+    ]
 });

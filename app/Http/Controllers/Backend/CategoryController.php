@@ -10,7 +10,10 @@ class CategoryController extends Controller
 {
     public function ViewCategory()
     {
-        return view('backend.viewcategory');
+        $category = category::paginate(5);
+        return view('backend.viewcategory',[
+            'categorys' => $category
+        ]);
     }
     public function AddCategory(Request $request)
     {

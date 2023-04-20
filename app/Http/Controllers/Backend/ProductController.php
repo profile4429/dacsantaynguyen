@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\product;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductController extends Controller
 {
     public function ViewProduct()
     {
-        return view('backend.viewproduct');
+        $product = product::paginate(5);
+        return view('backend.viewproduct', [
+            'products' => $product,
+        ]);
     }
     public function AddProduct(Request $request)
     {

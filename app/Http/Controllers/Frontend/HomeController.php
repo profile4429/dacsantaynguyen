@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use  App\Models\product;
+use Illuminate\Support\Facades\Request;
 
 class Homecontroller extends Controller
 {
@@ -15,4 +16,5 @@ class Homecontroller extends Controller
             'product_desc' => $product_desc,
         ]);
     }
+
 }

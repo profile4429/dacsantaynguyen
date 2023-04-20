@@ -1,0 +1,10 @@
+.nav-link-tab {
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block;
+    color: rgb(16, 14, 14);
+}
+.nav-link-tab:hover {
+    color: rgb(225, 14, 14);
+}

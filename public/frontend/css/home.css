@@ -1,14 +1,13 @@
-
-.nav-link {
+/* .nav-link {
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
     display: block;
     color: white;
 }
-.nav-link:hover{
+.nav-link:hover {
     color: brown;
-}
+} */
 .card {
     transition: 0.3s all ease;
     border-radius: 10px;

@@ -24,7 +24,7 @@
                         class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="http://dacsantaynguyen.com/Upload/Images/banners/bobooth.jpg" class="d-block w-100"
+                    <img src="http://dacsantaynguyen.com/Upload/Images/banners/amakong.jpg" class="d-block w-100"
                         alt="...">
                 </div>
                 <div class="carousel-item">
@@ -51,36 +51,15 @@
 
     <section class="mt-3">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 mb-2">
-                    <div class="card h-100 rounded overflow-hidden intro">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <a href=""><img class="bd-placeholder-img card-img-top h-100 w-100"
-                                        src="http://dacsantaynguyen.com/Upload/Images/khuyenmai/khuyenmai.jpg?w=185px&h=185px&mode=crop"></a>
+            <div class="row clearfix">
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card intro">
+                        <div class="row g-0">
+                            <div class="col-xl-6 col-lg-12">
+                                <img src="http://dacsantaynguyen.com/Upload/Images/banners/dulich.jpg?w=185px&h=185px&mode=crop"
+                                    class="img-fluid rounded-start h-100" alt="...">
                             </div>
-                            <div class="col-md-6">
-                                <div class="card-body" style="background: #84a933">
-                                    <h5 class="text-white text-center">Khuyến mãi</h5>
-                                    <p class="text-white text-center    ">
-                                        Đặc sản Tây nguyên luôn có các chương trình giảm giá, khuyến mãi để mọi người có
-                                        cơ hội
-                                        sở
-                                        hữu và thưởng thức Hương vị từ Tây nguyên.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card h-100 rounded overflow-hidden intro">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <a href=""><img class="bd-placeholder-img card-img-top h-100 w-100"
-                                        src="http://dacsantaynguyen.com/Upload/Images/banners/dulich.jpg?w=185px&h=185px&mode=crop"></a>
-                            </div>
-                            <div class="col-md-6">
+                            <div class="col-xl-6 col-lg-12">
                                 <div class="card-body" style="background: #84a933;">
                                     <h5 class="text-white text-center">Khuyến mãi</h5>
                                     <p class="text-white text-center">
@@ -94,15 +73,36 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-2">
-                    <div class="card h-100 rounded overflow-hidden intro">
-                        <div class="row no-gutters">
-                            <div class="col-md-6">
-                                <a href=""><img class="bd-placeholder-img card-img-top h-100 w-100"
-                                        src="http://dacsantaynguyen.com/Upload/Images/banners/thucdon.jpg?w=185px&h=185px&mode=crop"></a>
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card intro">
+                        <div class="row g-0">
+                            <div class="col-xl-6 col-lg-12">
+                                <img src="http://dacsantaynguyen.com/Upload/Images/banners/dulich.jpg?w=185px&h=185px&mode=crop"
+                                    class="img-fluid rounded-start h-100" alt="...">
                             </div>
-                            <div class="col-md-6">
-                                <div class="card-body" style="background: #84a933">
+                            <div class="col-xl-6 col-lg-12">
+                                <div class="card-body" style="background: #84a933;">
+                                    <h5 class="text-white text-center">Khuyến mãi</h5>
+                                    <p class="text-white text-center">
+                                        Đặc sản Tây nguyên luôn có các chương trình giảm giá, khuyến mãi để mọi người có
+                                        cơ hội
+                                        sở
+                                        hữu và thưởng thức Hương vị từ Tây nguyên.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 ">
+                    <div class="card intro">
+                        <div class="row g-0">
+                            <div class="col-xl-6 col-lg-12">
+                                <img src="http://dacsantaynguyen.com/Upload/Images/banners/dulich.jpg?w=185px&h=185px&mode=crop"
+                                    class="img-fluid rounded-start h-100" alt="...">
+                            </div>
+                            <div class="col-xl-6 col-lg-12">
+                                <div class="card-body" style="background: #84a933;">
                                     <h5 class="text-white text-center">Khuyến mãi</h5>
                                     <p class="text-white text-center">
                                         Đặc sản Tây nguyên luôn có các chương trình giảm giá, khuyến mãi để mọi người có
@@ -126,7 +126,7 @@
 
     <!--trending-->
     <div class="container-fluid mt-5">
-        <h3 class="text-center m-2" style="color: #000000"><strong style="color: #f0232a">Sản Phẩm</strong> Nổi Bật</h3>
+        <h4 class="text-center m-2" style="color: #000000"><strong style="color: #ce1f25">Sản Phẩm</strong> Nổi Bật</h4>
         <div class="row row-cols-1 row-cols-md-5 mb">
 
             <div class="col mb-2">
@@ -135,13 +135,12 @@
                         <img class="bd-placeholder-img card-img-top" style="height: 250px; object-fit: cover;"
                             src="http://dacsantaynguyen.com/Upload/Images/sanpham/Dacsantheomua/bo_booth.jpg?w=400&h=267&mode=crop"
                             width="100%"></a>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <strong>
                             <h6 class="card-title">Bơ Booth</h6>
                         </strong>
                         <h5 style="color: red" class="text-center"><strong>Giá: 150.000 vnđ</strong></h5>
-                        <h6 class="text-center text-decoration-line-through"><strong>180.000 vnđ</strong></h6>
-
+                        <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                     </div>
                 </div>
             </div>
@@ -151,13 +150,12 @@
                         <img class="bd-placeholder-img card-img-top" style="height: 250px; object-fit: cover;"
                             src="http://dacsantaynguyen.com/Upload/Images/sanpham/Dacsantheomua/bo_booth.jpg?w=400&h=267&mode=crop"
                             width="100%"></a>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <strong>
                             <h6 class="card-title">Bơ Booth</h6>
                         </strong>
                         <h5 style="color: red" class="text-center"><strong>Giá: 150.000 vnđ</strong></h5>
-                        <h6 class="text-center text-decoration-line-through"><strong>180.000 vnđ</strong></h6>
-
+                        <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                     </div>
                 </div>
             </div>
@@ -167,13 +165,12 @@
                         <img class="bd-placeholder-img card-img-top" style="height: 250px; object-fit: cover;"
                             src="http://dacsantaynguyen.com/Upload/Images/sanpham/Dacsantheomua/bo_booth.jpg?w=400&h=267&mode=crop"
                             width="100%"></a>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <strong>
                             <h6 class="card-title">Bơ Booth</h6>
                         </strong>
                         <h5 style="color: red" class="text-center"><strong>Giá: 150.000 vnđ</strong></h5>
-                        <h6 class="text-center text-decoration-line-through"><strong>180.000 vnđ</strong></h6>
-
+                        <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                     </div>
                 </div>
             </div>
@@ -183,13 +180,12 @@
                         <img class="bd-placeholder-img card-img-top" style="height: 250px; object-fit: cover;"
                             src="http://dacsantaynguyen.com/Upload/Images/sanpham/Dacsantheomua/bo_booth.jpg?w=400&h=267&mode=crop"
                             width="100%"></a>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <strong>
                             <h6 class="card-title">Bơ Booth</h6>
                         </strong>
                         <h5 style="color: red" class="text-center"><strong>Giá: 150.000 vnđ</strong></h5>
-                        <h6 class="text-center text-decoration-line-through"><strong>180.000 vnđ</strong></h6>
-
+                        <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                     </div>
                 </div>
             </div>
@@ -199,13 +195,12 @@
                         <img class="bd-placeholder-img card-img-top" style="height: 250px; object-fit: cover;"
                             src="http://dacsantaynguyen.com/Upload/Images/sanpham/Dacsantheomua/bo_booth.jpg?w=400&h=267&mode=crop"
                             width="100%"></a>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <strong>
                             <h6 class="card-title">Bơ Booth</h6>
                         </strong>
                         <h5 style="color: red" class="text-center"><strong>Giá: 150.000 vnđ</strong></h5>
-                        <h6 class="text-center text-decoration-line-through"><strong>180.000 vnđ</strong></h6>
-
+                        <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                     </div>
                 </div>
             </div>
@@ -219,13 +214,9 @@
 
     <!--banner-->
     <section>
-        <div class="container mt-5 position-relative">
-            <img src="https://damaca.vn/public/images_upload/banner/TheBM-keDXSe_banner.jpg" alt="" class="img-fluid">
-            <div class="banner-text position-absolute top-50 start-10 text-center translate-middle-y">
-                <h4>Macca Trọng Nghĩa</h4>
-                <h1>Chuyên sỉ lẻ các loại macca</h1>
-                <button class="btn btn-danger">Xem thêm</button>
-            </div>
+        <div class="container mt-5">
+            <img src="https://damaca.vn/public/images_upload/banner/TheBM-keDXSe_banner.jpg" alt=""
+                class="img-fluid">
         </div>
     </section>
 
@@ -234,7 +225,8 @@
     <!--danhmuc-->
     <section>
         <div class="container-fluid mt-5">
-            <h5 class="text-center" style="color: #88191c">Danh mục phổ biến</h5>
+            <h5 class="text-center m-2" style="color: #000000"><strong style="color: #ce1f25">Danh mục</strong> phổ biến
+            </h5>
             <div class="category-slider">
 
                 @foreach ($category as $item)
@@ -263,7 +255,7 @@
 
                 <div class="col-12 col-md-4 mb-2">
                     <div class="container mt-5 position-relative" style="height: 220px">
-                        <img src="http://dacsantaynguyen.com/Upload/Images/banners/slide-hoadamtan.jpg" alt=""
+                        <img src="https://laraweb.top/frontend/assets/imgs/banner/banner-1.png" alt=""
                             class="img-fluid w-100 h-100">
                         <div class="banner-text position-absolute top-50 start-10 end-50 text-center translate-middle-y">
                             <span>Nguyên chất</span>
@@ -274,7 +266,7 @@
 
                 <div class="col-12 col-md-4 mb-2">
                     <div class="container mt-5 position-relative" style="height: 220px">
-                        <img src="http://dacsantaynguyen.com/Upload/Images/banners/r(1).jpg" alt=""
+                        <img src="https://laraweb.top/frontend/assets/imgs/banner/banner-2.png" alt=""
                             class="img-fluid w-100 h-100">
                         <div class="banner-text position-absolute top-50 start-10 end-50 text-center translate-middle-y">
                             <span>An toàn</span>
@@ -285,7 +277,7 @@
 
                 <div class="col-12 col-md-4 mb-2">
                     <div class="container mt-5 position-relative" style="height: 220px">
-                        <img src="http://dacsantaynguyen.com/Upload/Images/banners/bo1nangkienvang.jpg" alt=""
+                        <img src="https://laraweb.top/frontend/assets/imgs/banner/banner-3.png" alt=""
                             class="img-fluid w-100 h-100">
                         <div class="banner-text position-absolute top-50 start-10 end-50 text-center translate-middle-y">
                             <span>Giá tốt</span>
@@ -303,26 +295,31 @@
     <!--end intro-->
 
 
-    <!--danhmuc-->
+    <!--sanphammoinhat-->
     <section>
         <div class="container-fluid my-5">
-            <h5 class="text-center" style="color: #88191c">Sản phẩm mới</h5>
+            <h5 class="text-center m-2" style="color: #000000">Sản phẩm<strong style="color: #ce1f25"> mới nhất</strong>
+            </h5>
             <div class="category-slider">
 
 
                 @foreach ($product_desc as $item)
                     <div class="card shadow-sm mx-3" style="height: 100%;">
                         <div class="p-3 box-shadows rounded">
-                            <a href="">
+                            <a href="{{ route('ViewDetail') }}?id={{ $item->id }}">
                                 <img class="bd-placeholder-img card-img-top" style="height: 200px; object-fit: cover;"
                                     src="{{ asset('/images/' . $item->image) }}" width="100%"></a>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column justify-content-center">
                             <strong>
                                 <h6 class="card-title">{{ $item->title }}</h6>
                             </strong>
-                            <h5 style="color: red" class="text-center"><strong>{{ $item->discount }}</strong></h5>
-                            <h6 class="text-center text-decoration-line-through"><strong>{{ $item->price }}</strong></h6>
+                            <?php
+                            $itemPrice = $item->discount;
+                            $formattedPrice = 'Giá: ' . number_format($itemPrice) . ' vnđ';
+                            ?>
+                            <h6 style="color: red" class="text-center"><strong>{{ $formattedPrice }}</strong></h6>
+                            <button class="btn btn-outline-danger me-1 mb-1 text-center" type="button">Đặt hàng</button>
                         </div>
                     </div>
                 @endforeach
@@ -330,6 +327,6 @@
             </div>
         </div>
     </section>
-    <!--danhmuc-->
+    <!--end sanphammoinhat-->
     <script src="{{ asset('frontend/js/home.js') }}"></script>
 @endsection

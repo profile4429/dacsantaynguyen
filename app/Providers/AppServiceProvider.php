@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $product= product::all();
         view()->share('product', $product);
 
-        $order= order::all();
-        view()->share('order', $order);
+        // $order= order::all();
+        // view()->share('order', $order);
     }
 }

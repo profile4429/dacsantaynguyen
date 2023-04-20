@@ -4,6 +4,7 @@
 @endsection
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('backend/css/product.css') }}">
     <!-- Modal add -->
     <div class="modal fade" id="add_modal" tabindex="-1">
         <div class="modal-dialog modal-xl">
@@ -147,53 +148,133 @@
     <!--End modal delete-->
 
     <!-- Table list-->
-    <div class="container-fluid">
-        <table class="table align-middle table-bordered table-hover">
-            <caption>Danh sách sản phẩm</caption>
-            <thead class="table-secondary">
-                <tr>
-                    <td><strong>ID</strong></th>
-                    <th><strong>Category ID</strong></th>
-                    <th><strong>Title</strong></th>
-                    <th><strong>Price</strong></th>
-                    <th><strong>Discount</strong></th>
-                    <th><strong>Image</strong></th>
-                    <th><strong>Description</strong></th>
-                    <th><strong>Hành động</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dữ liệu trong bảng -->
-                @foreach ($product as $product)
-                    <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>
-                            @foreach ($category as $category_item)
-                                @if ($category_item->id == $product->category_id)
-                                    {{ $category_item->name }}
-                                @endif
-                            @endforeach
-                        </td>
-                        <td>{{ $product->title }}</td>
-                        <td>{{ $product->price }}</td>
-                        <td>{{ $product->discount }}</td>
-                        <td><img class="card-img-top rounded" style="height: 150px; object-fit: cover;"
-                                src="{{ asset('/images/' . $product->image) }}" alt=""></td>
-                        <td>{!! $product->desc !!}</td>
-                        <td>
+    <div class="card">
+        <div class="container-fluid">
 
-                            <button id="btnEdit" class="btn btnEdit" data-id="{{ $product->id }}"><i
-                                    class="fa-solid fa-pen-to-square fa-lg" style="color: #000000;"></i></button>
-                            <button type="button" class="btn btnDelete" data-id="{{ $product->id }}"><i
-                                    class="fa-solid fa-xmark fa-lg" style="color: #000000;"></i></button>
-                            <button type="button" class="btn btnAdd"><i class="fa-solid fa-plus fa-lg"
-                                    style="color: #000000;"></i></button>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+            <div class="row justify-content-between g-0 mt-2">
+                <div class="col-auto col-sm-5 mb-3">
+                    <div id="bulk-select-replace-element" class="d-flex">
+                        <button class="btn btn-falcon-success btn-sm btnAdd" type="button">
+                            <span class="fas fa-plus" data-fa-transform="shrink-3 down-2"></span>
+                            <span class="ms-1">New</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-auto col-sm-5 mb-3">
+                    <form class="float-sm-end">
+                        <div class="input-group">
+                            <input class="form-control form-control-sm shadow-none search" type="search"
+                                placeholder="Search..." aria-label="search" />
+                            <div class="input-group-text bg-transparent">
+                                <span class="fa fa-search fs--1 text-600"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="table-responsive scrollbar">
+                <table class="table table-bordered table-striped align-middle fs--1 mb-0">
+                    <thead class="bg-200 text-900">
+                        <tr>
+                            <td><strong>ID</strong></th>
+                            <th><strong>Category ID</strong></th>
+                            <th><strong>Title</strong></th>
+                            <th><strong>Price</strong></th>
+                            <th><strong>Discount</strong></th>
+                            <th><strong>Image</strong></th>
+                            <th><strong>Description</strong></th>
+                            <th><strong>Hành động</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>
+                                    @foreach ($category as $category_item)
+                                        @if ($category_item->id == $product->category_id)
+                                            {{ $category_item->name }}
+                                        @endif
+                                    @endforeach
+                                </td>
+                                <td>{{ $product->title }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->discount }}</td>
+                                <td><img class="rounded mx-auto d-block" style="height: 150px; object-fit: cover;"
+                                        src="{{ asset('/images/' . $product->image) }}" alt=""></td>
+                                <td>{!! $product->desc !!}</td>
+                                <td>
+                                    <button class="btn btn-link p-0 btnEdit" data-id="{{ $product->id }}"><span
+                                            class="text-500 fas fa-edit"></span>
+                                    </button>
+                                    <button class="btn btn-link p-0 ms-2 btnDelete" data-id="{{ $product->id }}"><span
+                                            class="text-500 fas fa-trash-alt"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <div class="md-12">
+                    {{ $products->links('pagination.custom') }}
+                </div>
+            </div>
+        </div>
     </div>
+
+
+    {{-- <div class="card">
+        <div class="container-fluid">
+            <table class="table align-middle table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td><strong>ID</strong></th>
+                        <th><strong>Category ID</strong></th>
+                        <th><strong>Title</strong></th>
+                        <th><strong>Price</strong></th>
+                        <th><strong>Discount</strong></th>
+                        <th><strong>Image</strong></th>
+                        <th><strong>Description</strong></th>
+                        <th><strong>Hành động</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu trong bảng -->
+                    @foreach ($product as $product)
+                        <tr>
+                            <td>{{ $product->id }}</td>
+                            <td>
+                                @foreach ($category as $category_item)
+                                    @if ($category_item->id == $product->category_id)
+                                        {{ $category_item->name }}
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td>{{ $product->title }}</td>
+                            <td>{{ $product->price }}</td>
+                            <td>{{ $product->discount }}</td>
+                            <td><img class="card-img-top rounded" style="height: 150px; object-fit: cover;"
+                                    src="{{ asset('/images/' . $product->image) }}" alt=""></td>
+                            <td>{!! $product->desc !!}</td>
+                            <td>
+
+                                <button id="btnEdit" class="btn btnEdit" data-id="{{ $product->id }}"><span
+                                        class="text-500 fas fa-edit"></span></button>
+                                <button type="button" class="btn btnDelete" data-id="{{ $product->id }}"><span
+                                        class="text-500 fas fa-trash-alt"></span></button>
+                                <button type="button" class="btn btnAdd"><i class="fa-solid fa-plus fa-lg"
+                                        style="color: #000000;"></i></button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            <div class="col-md-12">
+                {{ $products->links('pagination.custom') }}
+            </div>
+        </div>
+    </div> --}}
     <!-- Table list-->
 
     <script>
