@@ -2,8 +2,8 @@
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
-    display: block;
-    color: rgb(16, 14, 14);
+    color: rgb(9, 9, 189);
+    text-decoration: none;
 }
 .nav-link-tab:hover {
     color: rgb(225, 14, 14);

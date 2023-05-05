@@ -17,7 +17,6 @@
                     <div class="card-body">
                         <form method="post" action="{{ route('AddProduct') }}" enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group">
                                 <label for="category_id">Loại sản phẩm:</label>
                                 <select class="form-control" name="category_id" id="category_id" required>
@@ -35,15 +34,11 @@
                                     value="">
                             </div>
                             <div class="form-group">
-                                <label for="price">Giá gốc:</label>
+                                <label for="price">Giá:</label>
                                 <input name="price" required type="text" class="form-control" id="price"
                                     value="">
                             </div>
-                            <div class="form-group">
-                                <label for="discount">Giá khuyến mãi:</label>
-                                <input name="discount" required type="text" class="form-control" id="discount"
-                                    value="">
-                            </div>
+
                             <div class="form-group">
                                 <label for="image">Hình ảnh:</label>
                                 <input required type="file" class="form-control-file" id="image" name="image"
@@ -70,14 +65,14 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa sản phẩm</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Cập nhật thông tin sản phẩm</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="card-body">
-                        <form method="post" action="" enctype="multipart/form-data">
+                        <form method="post" action="{{ route('UpdateProduct') }}" enctype="multipart/form-data">
                             @csrf
-
+                            <input name="id" id="id" type="hidden" class="form-control" value="">
                             <div class="form-group">
                                 <label for="category_id">Loại sản phẩm:</label>
                                 <select class="form-control" name="category_id" id="category_id" required>
@@ -88,7 +83,6 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm:</label>
                                 <input name="title" required type="text" class="form-control" id="title"
@@ -99,14 +93,10 @@
                                 <input name="price" required type="text" class="form-control" id="price"
                                     value="">
                             </div>
-                            <div class="form-group">
-                                <label for="discount">Giá khuyến mãi:</label>
-                                <input name="discount" required type="text" class="form-control" id="discount"
-                                    value="">
-                            </div>
+
                             <div class="form-group">
                                 <label for="image">Hình ảnh:</label>
-                                <input required type="file" class="form-control-file" id="image" name="image"
+                                <input type="file" class="form-control-file" id="image" name="image"
                                     accept=".jpg, .png, .jpeg|image/*">
                                 <img class="card-img-top" style="height: 150px; width: 300px; object-fit: cover;"
                                     src="" alt="" id="preview-image">
@@ -114,9 +104,10 @@
                             <div class="form-group">
                                 <label for="desc">Decsription:</label>
                                 <textarea name="desc" class="form-control" id="desc_edit"></textarea>
-
-                                <button type="submit" class="btn btn-primary">Thêm</button>
                             </div>
+                            <div id="editor">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </form>
                     </div>
                 </div>
@@ -146,6 +137,7 @@
         </div>
     </div>
     <!--End modal delete-->
+    
 
     <!-- Table list-->
     <div class="card">
@@ -181,7 +173,6 @@
                             <th><strong>Category ID</strong></th>
                             <th><strong>Title</strong></th>
                             <th><strong>Price</strong></th>
-                            <th><strong>Discount</strong></th>
                             <th><strong>Image</strong></th>
                             <th><strong>Description</strong></th>
                             <th><strong>Hành động</strong></th>
@@ -200,9 +191,13 @@
                                 </td>
                                 <td>{{ $product->title }}</td>
                                 <td>{{ $product->price }}</td>
-                                <td>{{ $product->discount }}</td>
-                                <td><img class="rounded mx-auto d-block" style="height: 150px; object-fit: cover;"
-                                        src="{{ asset('/images/' . $product->image) }}" alt=""></td>
+                                <td>
+                                    <div style=" height: 220px; overflow: hidden;">
+                                        <img src="{{ asset('/images/' . $product['image']) }}" alt="#"
+                                            class="rounded mx-auto d-block img-fluid"
+                                            style="width: 70%; height: 100%; object-fit: cover;">
+                                    </div>
+                                </td>
                                 <td>{!! $product->desc !!}</td>
                                 <td>
                                     <button class="btn btn-link p-0 btnEdit" data-id="{{ $product->id }}"><span
@@ -222,60 +217,6 @@
             </div>
         </div>
     </div>
-
-
-    {{-- <div class="card">
-        <div class="container-fluid">
-            <table class="table align-middle table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <td><strong>ID</strong></th>
-                        <th><strong>Category ID</strong></th>
-                        <th><strong>Title</strong></th>
-                        <th><strong>Price</strong></th>
-                        <th><strong>Discount</strong></th>
-                        <th><strong>Image</strong></th>
-                        <th><strong>Description</strong></th>
-                        <th><strong>Hành động</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dữ liệu trong bảng -->
-                    @foreach ($product as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>
-                                @foreach ($category as $category_item)
-                                    @if ($category_item->id == $product->category_id)
-                                        {{ $category_item->name }}
-                                    @endif
-                                @endforeach
-                            </td>
-                            <td>{{ $product->title }}</td>
-                            <td>{{ $product->price }}</td>
-                            <td>{{ $product->discount }}</td>
-                            <td><img class="card-img-top rounded" style="height: 150px; object-fit: cover;"
-                                    src="{{ asset('/images/' . $product->image) }}" alt=""></td>
-                            <td>{!! $product->desc !!}</td>
-                            <td>
-
-                                <button id="btnEdit" class="btn btnEdit" data-id="{{ $product->id }}"><span
-                                        class="text-500 fas fa-edit"></span></button>
-                                <button type="button" class="btn btnDelete" data-id="{{ $product->id }}"><span
-                                        class="text-500 fas fa-trash-alt"></span></button>
-                                <button type="button" class="btn btnAdd"><i class="fa-solid fa-plus fa-lg"
-                                        style="color: #000000;"></i></button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <div class="col-md-12">
-                {{ $products->links('pagination.custom') }}
-            </div>
-        </div>
-    </div> --}}
-    <!-- Table list-->
 
     <script>
         $(document).ready(function() {
@@ -307,9 +248,41 @@
             });
         });
     </script>
+    <script>
+        $("#image").change(function() {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                $("#preview-image").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+
+        $(document).ready(function() {
+            $(document).on("click", ".btnAdd", function() {
+                $("#add_modal").modal("show");
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {
+            const options = {
+                placeholder: 'Nhap noi dung',
+                tabsize: 2,
+                height: 300,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            };
+            $('#desc_add, #desc_edit').summernote(options);
+
             document.querySelectorAll(".btnEdit").forEach((element) => {
                 element.addEventListener("click", function() {
                     let product_id = $(this).data('id');
@@ -321,17 +294,19 @@
                             product_id: product_id,
                         },
                         success: function(response) {
+                            $('#edit_modal #id').val(response.id);
                             $('#edit_modal #category_id').val(response.category_id);
                             $('#edit_modal #title').val(response.title);
                             $('#edit_modal #price').val(response.price);
-                            $('#edit_modal #discount').val(response.discount);
                             if (response.image) {
                                 $('#edit_modal #preview-image').attr('src', '/images/' +
                                     response.image);
                             } else {
                                 $('#edit_modal #preview-image').attr('src', '');
                             }
-                            $('#edit_modal #desc').val(response.desc);
+                            $('#edit_modal #desc_edit').val(response.desc);
+                            $('#desc_edit').summernote('destroy');
+                            $('#desc_edit').summernote(options);
                             $('#edit_modal').modal('show');
                         },
                         error: function() {
@@ -342,5 +317,9 @@
             });
         });
     </script>
+
+
+
+
     <script src="{{ asset('backend/js/product.js') }}"></script>
 @endsection

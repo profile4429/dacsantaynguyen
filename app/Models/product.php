@@ -11,7 +11,7 @@ class product extends Model
     use HasFactory;
     protected $table = 'product';
 
-    protected $fillable = ['category_id', 'title', 'price', 'discount', 'image', 'desc', 'created_at', 'updated_at', 'deleted'];
+    protected $fillable = ['category_id', 'title', 'price', 'image', 'desc', 'created_at', 'updated_at', 'deleted'];
 
     // Relationship với bảng "category"
     public function category()

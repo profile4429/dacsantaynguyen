@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function ViewProduct()
     {
-        $product = product::paginate(5);
+        $product = product::paginate(10);
         return view('backend.viewproduct', [
             'products' => $product,
         ]);
@@ -30,7 +30,32 @@ class ProductController extends Controller
         product::insert($params);
         return redirect()->route('ViewProduct');
     }
-
+    public function UpdateProduct(Request $request)
+    {
+        $id = $request->id;
+        $params = $request->all();
+        unset($params['_token']);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '_' . $image->getClientOriginalName();
+            $path = $image->move('images', $filename);
+            $params['image'] = $filename;
+        }
+        product::where('id', $id)->update($params);
+        return redirect()->route('ViewProduct');
+    }
+ 
+    public function GetProductID(Request $request)
+    {
+        $product_id = $request->product_id;
+        $product = Product::find($product_id);
+        if ($product) {
+            return response()->json($product);
+        } else {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
+    }
+    
     public function DeleteProduct(Request $request)
     {
         try {
@@ -47,15 +72,5 @@ class ProductController extends Controller
             ];
         }
         return response()->json($json);
-    }
-    public function GetProductID(Request $request)
-    {
-        $product_id = $request->product_id;
-        $product = Product::find($product_id);
-        if ($product) {
-            return response()->json($product);
-        } else {
-            return response()->json(['error' => 'Product not found'], 404);
-        }
     }
 }

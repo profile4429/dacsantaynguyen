@@ -10,6 +10,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <link href="{{ asset('backend/css/theme.min.css') }}" rel="stylesheet" id="style-default">
+   
     <script src="{{ asset('backend/js/config.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,7 +27,7 @@
 <body>
 
     <main class="main" id="top">
-        <div class="container" data-layout="container">
+        <div class="container-fluid" data-layout="container-fluid">
             @include('backend.layout.sidebar')
             <div class="content">
                 @include('backend.layout.header')

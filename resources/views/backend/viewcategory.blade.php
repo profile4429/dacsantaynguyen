@@ -101,13 +101,13 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td><img class="card-img-top rounded" style="height: 150px; object-fit: cover;"
-                                        src="{{ asset('/images/' . $item->image) }}" alt=""></td>
                                 <td>
-
-                                    <button class="btn btn-link p-0 btnEdit" data-id="{{ $item->id }}"><span
-                                            class="text-500 fas fa-edit"></span>
-                                    </button>
+                                    <div style=" height: 220px; overflow: hidden;">
+                                        <img src="{{ asset('/images/' . $item->image) }}" alt="#"
+                                            class="rounded mx-auto d-block img-fluid"
+                                            style="width: 70%; height: 100%; object-fit: cover;">
+                                    </div>
+                                <td>
                                     <button class="btn btn-link p-0 ms-2 btnDelete" data-id="{{ $item->id }}"><span
                                             class="text-500 fas fa-trash-alt"></span>
                                     </button>
@@ -122,41 +122,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class="container-fluid">
-        <table class="table align-middle table-bordered table-hover">
-            <caption>Danh sách danh mục sản phẩm</caption>
-            <thead class="table-secondary">
-                <tr>
-                    <td><strong>ID</strong></th>
-                    <th><strong>Tên danh mục</strong></th>
-                    <th><strong>Hình ảnh</strong></th>
-                    <th><strong>Hành động</strong></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dữ liệu trong bảng -->
-                @foreach ($category as $item)
-                    <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td><img class="card-img-top rounded" style="height: 150px; object-fit: cover;"
-                                src="{{ asset('/images/' . $item->image) }}" alt=""></td>
-                        <td>
-
-                            <button id="" class="btn btnEdit" data-id="{{ $item->id }}"><i
-                                    class="fa-solid fa-pen-to-square fa-lg" style="color: #000000;"></i></button>
-                            <button type="button" class="btn btnDelete" data-id="{{ $item->id }}"><i
-                                    class="fa-solid fa-xmark fa-lg" style="color: #000000;"></i></button>
-                            <button type="button" class="btn btnAdd"><i class="fa-solid fa-plus fa-lg"
-                                    style="color: #000000;"></i></button>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div> --}}
-    <!-- Table list-->
-
     <script>
         $(document).ready(function() {
             $(document).on("click", ".btnDelete", function() {
@@ -180,9 +145,19 @@
                         if (data.error == 0) {
                             window.location.reload();
                         } else {
-                            alert("Xóa thất bại");
+                            alert(data.messe);
                         }
                     },
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(document).ready(function() {
+                $(document).on("click", ".btnAdd", function() {
+                    $("#add_modal").modal("show");
                 });
             });
         });

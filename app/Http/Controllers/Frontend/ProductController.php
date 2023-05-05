@@ -11,15 +11,16 @@ class ProductController extends Controller
 {
     public function ViewListProduct(Request $request)
     {
-      $id = $request->id;
-      
-      $products = product::where('category_id',$id)->get();
-      $categorys = category::where('id',$id)->first();
-     
-        return view('frontend.product',[
+        $id = $request->id;
+
+
+        $products = product::where('category_id', $id)->get();
+        $categorys = category::where('id', $id)->first();
+
+        return view('frontend.product', [
             'products' => $products,
-            'categorys'=> $categorys->name
-            
+            'categorys' => $categorys,
+
         ]);
     }
 }

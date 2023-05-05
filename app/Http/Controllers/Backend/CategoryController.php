@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function ViewCategory()
     {
         $category = category::paginate(5);
-        return view('backend.viewcategory',[
+        return view('backend.viewcategory', [
             'categorys' => $category
         ]);
     }
@@ -32,11 +32,19 @@ class CategoryController extends Controller
     {
         try {
             $id = $request->id;
-            category::where('id', $id)->delete();
-            $json = [
-                'error' => 0,
-                'messe' => "thanh cong"
-            ];
+            $category = category::findOrFail($id);
+            if ($category->product()->count() > 0) {
+                $json = [
+                    'error' => 2,
+                    'messe' => "Không thể xóa danh mục đã tồn tại sản phẩm"
+                ];
+            } else {
+                $category->delete();
+                $json = [
+                    'error' => 0,
+                    'messe' => "Xóa thành công"
+                ];
+            }
         } catch (\Exception $e) {
             $json = [
                 'error' => 1,
@@ -44,5 +52,16 @@ class CategoryController extends Controller
             ];
         }
         return response()->json($json);
+    }
+    
+    public function GetCategoryID(Request $request)
+    {
+        $category_id = $request->category_id;
+        $category = category::find($category_id);
+        if ($category) {
+            return response()->json($category);
+        } else {
+            return response()->json(['error' => 'Product not found'], 404);
+        }
     }
 }
