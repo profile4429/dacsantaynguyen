@@ -1,32 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\DetailController;
-use App\Http\Controllers\frontend\ProductController;
-use App\Http\Controllers\frontend\CartController;
-use App\Http\Controllers\frontend\CheckoutController;
-use App\Http\Controllers\frontend\NewsController;
-use App\Http\Controllers\frontend\ContactController;
-use App\Http\Controllers\frontend\PolicyController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\DetailController;
+use App\Http\Controllers\Frontend\ProductController;
+use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\NewsController;
+use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\PolicyController;
 
-
-
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', [HomeController::class, 'ViewHome'])->name('ViewHome');
 

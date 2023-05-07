@@ -7,7 +7,7 @@
         <div class="d-flex align-items-center">
             {{-- <img class="me-2" src="assets/img/icons/spot-illustrations/falcon.png"
                 alt="" width="40" /> --}}
-                <span class="font-sans-serif">ADMIN</span>
+            <span class="font-sans-serif">ADMIN</span>
         </div>
     </a>
     <ul class="navbar-nav align-items-center d-none d-lg-block">
@@ -27,8 +27,10 @@
             </div>
         </li>
     </ul>
+ 
 
     <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
+       
         <li class="nav-item px-2">
             <div class="theme-control-toggle fa-icon-wait">
                 <input class="form-check-input ms-0 theme-control-toggle-input" id="themeControlToggle" type="checkbox"
@@ -46,7 +48,8 @@
         <li class="nav-item dropdown"><a class="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar avatar-xl">
-                    <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" />
+                    <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                        alt="" />
 
                 </div>
             </a>
@@ -63,7 +66,16 @@
 
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="pages/user/settings.html">Settings</a>
-                    <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
                 </div>
             </div>
         </li>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use  App\Models\product;
@@ -28,17 +28,18 @@ class Homecontroller extends Controller
             ->get();
 
         $top_product = DB::table('order_detail')
-            ->select('product.id', 'product.title', 'product.price', 'product.image', DB::raw('SUM(order_detail.count) as total_sales'))
+            ->select('product.id', DB::raw('GROUP_CONCAT(DISTINCT product.title SEPARATOR ", ") as title'), 'product.price', DB::raw("SUBSTRING_INDEX(GROUP_CONCAT(DISTINCT product.image SEPARATOR ', '), ',', 1) as image"), DB::raw('SUM(order_detail.count) as total_sales'))
             ->join('product', 'product.id', '=', 'order_detail.product_id')
-            ->groupBy('order_detail.product_id')
+            ->groupBy('order_detail.product_id', 'product.id', 'product.price')
             ->orderByDesc('total_sales')
             ->limit(5)
             ->get();
-        $intro_top = intro::where('status',0)->get();
-        $intro_mid = intro::where('status',1)->get();
 
-        $picture_top = picture::where('status',0)->get();
-        $picture_mid = picture::where('status',1)->get();
+        $intro_top = intro::where('status', 0)->get();
+        $intro_mid = intro::where('status', 1)->get();
+
+        $picture_top = picture::where('status', 0)->get();
+        $picture_mid = picture::where('status', 1)->get();
 
 
         return view('frontend.home')->with([
